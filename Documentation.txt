@@ -1,0 +1,21 @@
+ * TEAM MEMBERS: (put your names here)
+ *     Alex Henry, adhe223@g.uky.edu 
+ *     Rob Burrus, robert.burrus@uky.edu 
+ * 
+ * Description:
+	Main loads the DisallowedWords file, begins listening for connections to the server, and 
+	then goes into an infinite loop that looks like this:
+	
+	while (1) {
+	Accept(): wait for a connection request 
+	echo(): read input from browser, send get request to server, parse for disallowed words, send to browser 
+	Close(): close the connection
+	
+	Echo is where most of the work in our program happens. Echo reads a GET request from the browser,
+	parses it, then formats the request we will send to the webserver, sends it, then receives what the
+	webserver responds with and outputs it to the browser. It also calls the functions to log and block.
+	After echo is finished we are back in the while loop in main where we close the connection with the
+	browser and then loop around and begin listening again.
+ 
+ IMPORTANT: In DisallowedWords file, make sure each "word" is on its own line and is followed by a single new line character. So even the last "word" should have a newline after it. Also the file must be in the
+ same path and named "DisallowedWords".
